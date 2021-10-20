@@ -1,0 +1,101 @@
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  color: #000;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 17s ease infinite;
+  -moz-animation: Gradient 17s ease infinite;
+  animation: Gradient 17s ease infinite;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+input,
+button,
+textarea,
+::placeholder {
+  font-family: inherit;
+}
+::placeholder {
+  color: inherit;
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

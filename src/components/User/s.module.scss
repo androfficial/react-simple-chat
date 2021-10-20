@@ -1,0 +1,15 @@
+.users_item {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  padding: 8px 10px;
+  background-color: darken(#405aff, 2%);
+  &:not(:last-child) {
+    margin: 0px 0px 5px 0px;
+  }  
+}
+.users__name {
+  font-weight: 600;
+  color: #fff;
+  line-height: 115%;
+}

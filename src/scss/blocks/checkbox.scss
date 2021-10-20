@@ -1,0 +1,42 @@
+.custom-label > .custom-input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.custom-label > .custom-content {
+	font-size: 16px;
+	line-height: 19 / 16 * 100%;
+	color: #fff;
+	display: inline-flex;
+	align-items: center;
+	user-select: none;
+}
+.custom-label > .custom-content::before {
+	content: "";
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	flex: 0 0 24px;
+	border: 1px solid #fff;
+	background-color: transparent;
+	border-radius: 4px;
+	margin: 0px 10px 0px 0px;
+	background-repeat: no-repeat;
+   background-position: center center;
+   background-size: 15px 12px;
+}
+.custom-label > .custom-input:not(:disabled):not(:checked) + .custom-content:hover::before {
+	border-color: darken(#fff, 10%);
+}
+.custom-label > .custom-input:not(:disabled):active + .custom-content::before {
+	background-color: lighten(#fff, 15%);
+}
+.custom-label > .custom-input:focus + .custom-content::before {
+	box-shadow: 0 0 0 0.2rem rgba(#fff, 0.25);
+}
+.custom-label > .custom-input:checked + .custom-content::before {
+	border-color: darken(#fff, 10%);
+	background-image: url(../img/catalog/check.svg);
+	width: 24px;
+	height: 24px;
+}
