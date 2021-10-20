@@ -1,0 +1,14 @@
+@import 'blocks/@keyframes';
+@import 'null';
+@import 'blocks/mixins';
+
+$maxWidthContainer: 1080;
+$heightHeaderInner: 50;
+$maxWidth: 1250;
+
+#wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

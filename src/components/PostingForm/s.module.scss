@@ -1,0 +1,11 @@
+.form {
+  display: grid;
+  grid-auto-flow: row;
+  justify-items: start;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 10px;
+  position: relative;
+  margin: 20px 0px 0px 0px;
+  padding: 20px 0px 0px 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}

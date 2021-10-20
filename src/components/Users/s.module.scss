@@ -1,0 +1,42 @@
+.users {
+  flex: 0 0 230px;
+  background-color: #fff;
+  padding: 20px;
+  background: darken(#7386ff, 5%);
+}
+.body {
+  height: 100%;
+}
+.current_room_shell {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0px 0px 15px 0px;
+  margin: 0px 0px 15px 0px;
+}
+.current_room {
+  font-size: 16px;
+  color: #fff;
+  margin: 0px 0px 0px 5px;
+}
+.total_users_online_shell {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 10px 0px;
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+}
+.total_users_online {
+  font-size: 16px;
+  color: #fff;
+  margin: 0px 0px 0px 5px;
+}
+.users_list_shell {
+  height: calc(100% - 73px);
+}
+.users_list {
+  padding: 0px 12px 0px 0px;
+}

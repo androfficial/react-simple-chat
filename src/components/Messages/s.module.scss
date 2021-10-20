@@ -1,0 +1,13 @@
+.messages {
+  flex: 1 1 auto;
+  padding: 20px;
+  background: #f3f4fa;
+}
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.messages_list {
+  padding: 0px 15px 0px 0px;
+}
