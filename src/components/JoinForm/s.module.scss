@@ -1,6 +1,14 @@
+$maxWidth: 1920;
+$maxWidthContainer: 992;
+
+@import '../../scss/blocks/mixins';
+
 .body {
   width: 430px;
-  padding: 40px 30px;
+  @include adaptiv-value("padding-top", 40, 20, 1);
+  @include adaptiv-value("padding-right", 30, 20, 1);
+  @include adaptiv-value("padding-bottom", 40, 20, 1);
+  @include adaptiv-value("padding-left", 30, 20, 1);
   border-radius: 8px;
   background: #fff;
 }
@@ -14,8 +22,18 @@
   overflow: hidden;
   img {
     display: block;
+    @include adaptiv-value("width", 80, 60, 1);
+    @include adaptiv-value("height", 80, 60, 1);
     width: 80px;
     height: 80px;
+  }
+}
+.title {
+  @media (max-width: 768px) {
+    font-size: 1.6rem !important;
+  }
+  @media (max-width: 380px) {
+    font-size: 1.3rem !important;
   }
 }
 .form_login {

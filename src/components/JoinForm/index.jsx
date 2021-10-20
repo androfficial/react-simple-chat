@@ -40,6 +40,7 @@ const JoinForm = ({ dispatch, isLoading, onLogin }) => {
           <Typography
             variant="h4"
             component="h1"
+            className={s.title}
             sx={{
               fontSize: "1.8rem",
               textTransform: "capitalize",
