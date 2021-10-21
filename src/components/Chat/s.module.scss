@@ -5,4 +5,7 @@
   align-items: stretch;
   overflow: hidden;
   border-radius: 3px;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 }
