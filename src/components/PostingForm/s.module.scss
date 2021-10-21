@@ -8,4 +8,9 @@
   margin: 20px 0px 0px 0px;
   padding: 20px 0px 0px 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
+  @media (max-width: 600px) {
+    margin: 15px 0px 0px 0px;
+    padding-top: 0;
+    border-top: none;
+  }
 }
