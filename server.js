@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 
 const app = express();
@@ -8,6 +9,7 @@ const io = require("socket.io")(server, {
   },
 });
 
+app.use(express.static(path.join(__dirname, "./build")));
 app.use(express.json());
 
 const rooms = new Map();
@@ -72,7 +74,9 @@ io.on("connection", (socket) => {
   console.log("User Connected:", socket.id);
 });
 
-server.listen(9999, (err) => {
+const PORT = process.env.PORT || 9999;
+
+server.listen(PORT, (err) => {
   if (err) {
     throw Error(err);
   }
