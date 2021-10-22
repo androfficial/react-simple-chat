@@ -3,7 +3,7 @@
 * NodeJS / Express
 * Socket.IO
 * Axios
-* Formik
+* Formik / Yup
 * SimpleBar
 * Material UI
 * SCSS
