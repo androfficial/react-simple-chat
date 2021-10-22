@@ -6,7 +6,7 @@
 * Formik / Yup
 * SimpleBar
 * Material UI
-* SCSS
+* SCSS / Mixins
 * @Keyframes Animations
 
 ### Re-creation!  
