@@ -1,21 +1,21 @@
-import React from "react";
-import AppContext from "../../context/context";
+import React from 'react';
+import AppContext from '../../context/context';
 
-import socket, { Types } from "../../socket/socket";
+import socket, { Types } from '../../socket/socket';
 
-import { validationMessage } from "../../validationSchemes/validationSchemes";
+import { validationMessage } from '../../validationSchemes/validationSchemes';
 import { useFormik } from 'formik';
 
-import { Button, TextField } from "@mui/material";
+import { Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-import s from "./s.module.scss";
+import s from './s.module.scss';
 
 const PostingForm = () => {
   const { roomId, userName, onAddMessage } = React.useContext(AppContext);
 
   const onSendMessage = (message) => {
-    if (message !== "") {
+    if (message.length > 0) {
       socket.emit(Types.NEW_MESSAGE, {
         userName,
         roomId,
@@ -27,22 +27,22 @@ const PostingForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      typingMessage: "",
+      typingMessage: '',
     },
     validationSchema: validationMessage,
-    onSubmit: (val, { resetForm }) => {
-      onSendMessage(val.typingMessage);
-      resetForm({ typingMessage: "" });
+    onSubmit: ({ typingMessage }, { resetForm }) => {
+      onSendMessage(typingMessage.trim());
+      resetForm({ typingMessage: '' });
     },
   });
 
   return (
-    <form className={s.form}>
+    <form onSubmit={formik.handleSubmit} className={s.form}>
       <TextField
         onKeyDown={(e) => {
-          if (e.key === "Enter" && !e.shiftKey) {
+          if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            onSendMessage();
+            formik.handleSubmit();
           }
         }}
         variant="outlined"
@@ -55,17 +55,15 @@ const PostingForm = () => {
         helperText={formik.touched.typingMessage && formik.errors.typingMessage}
         rows="3"
         fullWidth
-        multiline
-      ></TextField>
+        multiline></TextField>
       <Button
-        onClick={formik.handleSubmit}
         disabled={!formik.isValid}
         variant="contained"
         startIcon={<SendIcon />}
+        type="submit"
         sx={{
-          minWidth: "115px",
-        }}
-      >
+          minWidth: '115px',
+        }}>
         Send
       </Button>
     </form>

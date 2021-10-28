@@ -1,22 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import { chatAPI } from "../../api/api";
+import { chatAPI } from '../../api/api';
 
-import { setLoading } from "../../state/reducers/chat";
+import { setLoading } from '../../state/reducers/chat';
 
-import { validationJoining } from "../../validationSchemes/validationSchemes";
-import { useFormik } from "formik";
+import { validationJoining } from '../../validationSchemes/validationSchemes';
+import { useFormik } from 'formik';
 
-import { TextField, Typography } from "@mui/material";
+import { TextField, Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoadingButton from '@mui/lab/LoadingButton';
 
-import s from "./s.module.scss";
+import s from './s.module.scss';
 
 const JoinForm = ({ dispatch, isLoading, onLogin }) => {
-  
   const onEnter = async (obj) => {
     dispatch(setLoading(true));
     await chatAPI.createRoom(obj);
@@ -25,8 +24,8 @@ const JoinForm = ({ dispatch, isLoading, onLogin }) => {
 
   const formik = useFormik({
     initialValues: {
-      roomId: "",
-      userName: "",
+      roomId: '',
+      userName: '',
     },
     validationSchema: validationJoining,
     onSubmit: (values) => onEnter(values),
@@ -42,11 +41,9 @@ const JoinForm = ({ dispatch, isLoading, onLogin }) => {
             component="h1"
             className={s.title}
             sx={{
-              fontSize: "1.8rem",
-              textTransform: "capitalize",
-              marginLeft: "15px",
-            }}
-          >
+              fontSize: '2rem',
+              textTransform: 'capitalize',
+            }}>
             Join and chat
           </Typography>
         </div>
@@ -64,7 +61,7 @@ const JoinForm = ({ dispatch, isLoading, onLogin }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.roomId && Boolean(formik.errors.roomId)}
-            helperText={formik.touched.roomId && formik.errors.roomId} 
+            helperText={formik.touched.roomId && formik.errors.roomId}
             required={true}
             fullWidth
           />
@@ -92,9 +89,8 @@ const JoinForm = ({ dispatch, isLoading, onLogin }) => {
             loading={isLoading}
             variant="contained"
             type="submit"
-            endIcon={<LoginIcon/ >}
-            fullWidth
-          >
+            endIcon={<LoginIcon />}
+            fullWidth>
             ENTER THE ROOM
           </LoadingButton>
         </div>

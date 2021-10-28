@@ -4,11 +4,11 @@ $maxWidthContainer: 992;
 @import '../../scss/blocks/mixins';
 
 .body {
-  width: 430px;
-  @include adaptiv-value("padding-top", 40, 20, 1);
-  @include adaptiv-value("padding-right", 30, 20, 1);
-  @include adaptiv-value("padding-bottom", 40, 20, 1);
-  @include adaptiv-value("padding-left", 30, 20, 1);
+  width: 450px;
+  @include adaptiv-value('padding-top', 40, 20, 1);
+  @include adaptiv-value('padding-right', 30, 20, 1);
+  @include adaptiv-value('padding-bottom', 40, 20, 1);
+  @include adaptiv-value('padding-left', 30, 20, 1);
   border-radius: 8px;
   background: #fff;
 }
@@ -17,18 +17,26 @@ $maxWidthContainer: 992;
   margin: 0px 0px 15px 0px;
 }
 .content_shell {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   align-items: center;
+  grid-template-columns: 80px 1fr;
+  @include adaptiv-value("column-gap", 20, 0, 1);
   overflow: hidden;
   img {
     display: block;
-    @include adaptiv-value("width", 80, 60, 1);
-    @include adaptiv-value("height", 80, 60, 1);
+    @include adaptiv-value('width', 80, 60, 1);
+    @include adaptiv-value('height', 80, 60, 1);
     width: 80px;
     height: 80px;
   }
 }
 .title {
+  background: -webkit-linear-gradient(to right, #121fcf 0%, #cf1512 100%);
+  background: -moz-linear-gradient(to right, #121fcf 0%, #cf1512 100%);
+  background: linear-gradient(to right, #121fcf 0%, #cf1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   @media (max-width: 768px) {
     font-size: 1.6rem !important;
   }
@@ -49,4 +57,5 @@ $maxWidthContainer: 992;
     margin: 0px 0px 12px 0px;
   }
 }
-.come_in_shell {}
+.come_in_shell {
+}
