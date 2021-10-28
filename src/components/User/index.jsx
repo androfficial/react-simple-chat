@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import s from "./s.module.scss";
+import s from './s.module.scss';
 
 const User = ({ name }) => {
   return (

@@ -1,19 +1,14 @@
-import React from "react";
-import AppContext from "./context/context";
+import React from 'react';
+import AppContext from './context/context';
 
-import socket, { Types } from "./socket/socket";
-import { chatAPI } from "./api/api";
+import socket, { Types } from './socket/socket';
+import { chatAPI } from './api/api';
 
-import chat, {
-  joined,
-  setData,
-  setUsers,
-  setMessage,
-} from "./state/reducers/chat";
+import chat, { joined, setJoined, setData, setUsers, setMessage } from './state/reducers/chat';
 
-import { JoinForm, Chat } from "./components";
+import { JoinForm, Chat } from './components';
 
-import s from "./App.module.scss";
+import s from './App.module.scss';
 
 const App = () => {
   const [state, dispatch] = React.useReducer(chat, {
@@ -43,6 +38,11 @@ const App = () => {
     dispatch(setData(data));
   };
 
+  const onLeave = async () => {
+    socket.emit(Types.ROOM_LEAVE, state.roomId);
+    dispatch(setJoined(false));
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -51,10 +51,14 @@ const App = () => {
         userName: state.userName,
         messages: state.messages,
         onAddMessage: addMessage,
-      }}
-    >
+        onLeave,
+      }}>
       <div className={s.lite_chat_shell}>
-        {!state.joined ? <JoinForm dispatch={dispatch} isLoading={state.isLoading} onLogin={onLogin} /> : <Chat />}
+        {!state.joined ? (
+          <JoinForm dispatch={dispatch} isLoading={state.isLoading} onLogin={onLogin} />
+        ) : (
+          <Chat />
+        )}
       </div>
     </AppContext.Provider>
   );

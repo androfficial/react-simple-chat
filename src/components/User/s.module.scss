@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   border-radius: 3px;
-  padding: 8px 10px;
-  background-color: darken(#405aff, 2%);
+  padding: 8px 12px;
+  background: linear-gradient(270deg, rgb(24, 57, 255), rgb(9, 25, 128));
   &:not(:last-child) {
     margin: 0px 0px 5px 0px;
   }  

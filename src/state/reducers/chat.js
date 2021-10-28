@@ -1,18 +1,24 @@
 export const Types = {
-  JOINED: "CHAT@JOINED",
-  SET_LOADING: "CHAT@SET_LOADING",
-  SET_USERS: "CHAT@SET_USERS",
-  SET_DATA: "CHAT@SET_DATA",
-  NEW_MESSAGE: "CHAT@NEW_MESSAGE",
+  JOINED: 'CHAT@JOINED',
+  SET_JOINED: 'CHAT@SET_JOINED',
+  SET_LOADING: 'CHAT@SET_LOADING',
+  SET_USERS: 'CHAT@SET_USERS',
+  SET_DATA: 'CHAT@SET_DATA',
+  NEW_MESSAGE: 'CHAT@NEW_MESSAGE',
 };
 
-export default (state, action) => {
+const chat = (state, action) => {
   switch (action.type) {
     case Types.JOINED:
       return {
         ...state,
         roomId: action.payload.roomId,
         userName: action.payload.userName,
+      };
+    case Types.SET_JOINED:
+      return {
+        ...state,
+        joined: action.payload,
       };
     case Types.SET_LOADING:
       return {
@@ -47,6 +53,11 @@ export const joined = (payload) => ({
   payload,
 });
 
+export const setJoined = (payload) => ({
+  type: Types.SET_JOINED,
+  payload,
+});
+
 export const setLoading = (payload) => ({
   type: Types.SET_LOADING,
   payload,
@@ -66,3 +77,5 @@ export const setMessage = (payload) => ({
   type: Types.NEW_MESSAGE,
   payload,
 });
+
+export default chat;

@@ -7,12 +7,12 @@
   background-color: #e1e5ff;
   border-radius: 3px;
   &:not(:last-child) {
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 15px 0px;
   }
 }
 .author {
   font-size: 14px;
-  color: darken(#ababf9, 5%);
+  color: #6060ff;
 }
 .message {
   font-weight: 400;

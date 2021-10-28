@@ -1,0 +1,46 @@
+$maxWidth: 1920;
+$maxWidthContainer: 992;
+
+@import '../../scss/blocks/mixins.scss';
+
+.header {
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background: linear-gradient(90deg, rgba(59,86,255,1) 58%, rgba(9,25,128,1) 100%);
+  @media (max-width: 600px) {
+    grid-column: initial;
+    padding: 5px 15px;
+  }
+}
+.left {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0px 10px 0px 0px;
+    @media (max-width: 600px) {
+      margin: 0px 8px 0px 0px;
+    }
+  }
+}
+.title {
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: capitalize;
+  color: rgba(#fff, .88);
+  @media (max-width: 600px) {
+    @include adaptiv-value("font-size", 20, 18, 1);
+    letter-spacing: 1.5px;
+  }
+}
+.right {
+  button {}
+}
