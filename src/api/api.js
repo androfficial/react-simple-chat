@@ -5,14 +5,14 @@ export const chatAPI = {
     try {
       return axios.get(`/rooms/${roomId}`);
     } catch (error) {
-      console.error(`Ошибка при получении данных о комнате: ${error}`);
+      console.error(`Error fetching room data: ${error}`);
     }
   },
   createRoom(obj) {
     try {
       return axios.post("/rooms", obj);
     } catch (error) {
-      console.error(`Ошибка при создании комнаты: ${error}`);
+      console.error(`Error creating room: ${error}`);
     }
   },
 }

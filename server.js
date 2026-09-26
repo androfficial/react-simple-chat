@@ -14,7 +14,6 @@ app.use(express.json());
 
 const rooms = new Map();
 
-// Получение спика пользователей и сообщений во время присоединения в комнату
 app.get('/rooms/:id', (req, res) => {
   const { id: roomId } = req.params;
   const obj = rooms.has(roomId)
@@ -26,7 +25,6 @@ app.get('/rooms/:id', (req, res) => {
   res.json(obj);
 });
 
-// Создание комнаты
 app.post('/rooms', (req, res) => {
   const { roomId, userName } = req.body;
   if (!rooms.has(roomId)) {
@@ -51,7 +49,6 @@ const getUsers = (socket) => {
 };
 
 io.on('connection', (socket) => {
-  // Добавление пользователя в комнату
   socket.on('ROOM:JOIN', ({ roomId, userName }) => {
     socket.join(roomId);
 
@@ -60,14 +57,12 @@ io.on('connection', (socket) => {
     socket.broadcast.to(roomId).emit('ROOM:SET_USERS', users);
   });
 
-  // Удаление пользователя с комнаты
   socket.on('ROOM:LEAVE', (roomId) => {
     socket.leave(roomId);
     
     getUsers(socket);
   });
 
-  // Добавление нового сообщения
   socket.on('ROOM:NEW_MESSAGE', ({ roomId, userName, text }) => {
     const obj = {
       userName,
@@ -78,7 +73,6 @@ io.on('connection', (socket) => {
     socket.broadcast.to(roomId).emit('ROOM:NEW_MESSAGE', obj);
   });
 
-  // Удаление пользователя при дисконнекте
   socket.on('disconnect', () => {
     getUsers(socket);
   });
@@ -92,5 +86,5 @@ server.listen(PORT, (err) => {
   if (err) {
     throw Error(err);
   }
-  console.log('Сервер запущен');
+  console.log('Server started');
 });
